@@ -13,6 +13,6 @@ jobs:
 
       - name: init
         run: terraform init
-        - name: apply
+      - name: apply
         run: terraform apply -auto-approve
           
