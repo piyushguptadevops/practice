@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  job1: az login
+  build:
+    
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: az login
+        run: az login --sp --username 2e86b18b-04d4-431a-8db8-369ca26a2742 --password aL38Q~4t_U3-bvRfqAZ4CBj_YHR6aUYndd2LcaRu --tenant 857e3492-3cd9-49ec-a071-0cca664b334b
+
+      - name: init
+        run: terraform init
+        - name: apply
+        run: terraform apply -auto-approve
+          
